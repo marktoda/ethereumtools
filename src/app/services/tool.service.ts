@@ -45,7 +45,7 @@ export class ToolService implements DataSource<ToolDefinition> {
 
   load(query?: string, category?: string): void {
     const newItems: ToolDefinition[] = [];
-    const categories = new Set();
+    const categories = new Set<string>();
     availableTools.forEach((tool: ToolDefinition): void => {
       newItems.push(tool);
       categories.add(tool.category);

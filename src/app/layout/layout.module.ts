@@ -22,7 +22,7 @@ import { WelcomeDialog } from './home/welcome.dialog.component';
         CommonModule,
         LayoutRoutingModule,
         TranslateModule,
-        NgbDropdownModule.forRoot(),
+        NgbDropdownModule,
         MatSelectModule,
         MatBadgeModule,
         MatIconModule,
