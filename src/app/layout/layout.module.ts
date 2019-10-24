@@ -15,7 +15,6 @@ import { LayoutComponent } from './layout.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
-import { WelcomeDialog } from './home/welcome.dialog.component';
 
 @NgModule({
     imports: [
@@ -33,7 +32,7 @@ import { WelcomeDialog } from './home/welcome.dialog.component';
         MatDialogModule,
     ],
     providers: [ToolService],
-    declarations: [LayoutComponent, HeaderComponent, FooterComponent, WelcomeDialog],
-    entryComponents: [WelcomeDialog]
+    declarations: [LayoutComponent, HeaderComponent, FooterComponent],
+    entryComponents: []
 })
 export class LayoutModule {}
