@@ -1,0 +1,150 @@
+.flex-parent {
+  display: flex;
+}
+#narrow {
+  width: 200px;
+  /* Just so it's visible */
+}
+.wide {
+  flex: 1;
+  /* Grow to rest of container */
+}
+
+.big {
+	width: 500px;
+}
+
+.v-big {
+	width: 600px;
+}
+
+.center-component {
+ 	width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  color: black;
+}
+
+.card-deck-container {
+  width: 100%;
+  position: relative;
+  border-radius: 2px;
+  padding: 10px 10px 30px;
+  margin: 10px 10px 10px 10px;
+}
+
+.card-item {
+  padding: 3px 3px 50px 3px;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.header-item {
+  color: #292c2f;
+  display: block;
+  text-align: left;
+    font-weight: bold;
+}
+
+.titles {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.title {
+    text-align: left;
+}
+
+.title-item {
+    color: #2b3252;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-weight: bold;
+}
+
+.search-bar {
+    height: 50px;
+    width: 80%;
+}
+
+.getstarted {
+    width: 50px;
+}
+
+.search-stuff {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.secondary-title-item {
+    color: #fad744;
+}
+
+.mat-divider {
+  border-top-color: black;
+}
+
+.dialog {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+.title-page {
+  background-color: #292c2f;
+  background-image: url("assets/images/skyline.png");
+  background-position: center 50%;
+  background-size: cover;
+  height: 475px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.items {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.see-more {
+    float: right;
+    color: #2b3252;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+@media (max-width: 800px) {
+    .title-page {
+        background-position: right 100%;
+    }
+    .search-stuff {
+        width: 60%;
+        margin-left: 10px;
+    }
+
+    .items {
+        width: 90%;
+    }
+
+}
+
+.padding {
+  height: 50px;
+}

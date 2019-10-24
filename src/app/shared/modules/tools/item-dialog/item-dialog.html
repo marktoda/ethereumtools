@@ -1,0 +1,15 @@
+<div class="dialog">
+    <h1 mat-dialog-title class="red-text">{{item.name}}</h1>
+    <div mat-dialog-content class="content">
+      <br>
+      <div>
+          <p>{{item.name}}</p>
+      </div>
+    </div>
+    <div mat-dialog-actions class="actions">
+      <button class="btn right-padding" mat-raised-button color="primary" (click)="addToCart()">Add to Cart</button>
+      <button class="btn left-padding" mat-raised-button color="primary" (click)="onNoClick()">Continue</button>
+    </div>
+    <br>
+  </div>
+  
