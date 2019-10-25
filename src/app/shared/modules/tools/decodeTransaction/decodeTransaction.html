@@ -1,0 +1,38 @@
+<div class="dialog">
+  <h1 mat-dialog-title class="title">{{item.name}}</h1>
+  <div mat-dialog-content class="content">
+    <div class="full-width" *ngIf="!txResult">
+        <h3 class="header">transaction hex</h3>
+        <br>
+      <textarea class="input" rows="5" matInput [(ngModel)]="txInput"></textarea>
+        <br>
+      <button class="btn" mat-raised-button color="primary" (click)="decode()">submit</button>
+  
+  
+      <br><br><br>
+    </div>
+
+    
+    <h3 class="header">result</h3>
+      <br>
+    <div class="text-single-line-wrap" *ngIf="!txResult || !txResult.nonce">
+      <p>{{txResult}}</p>
+    </div>
+
+    <div class="text-single-line-wrap" *ngIf="txResult && txResult.nonce">
+        <a target="_blank" href="https://etherscan.io/tx/{{txResult.txid}}">https://etherscan.io/tx/{{txResult.to}}</a>
+        <p>To: {{txResult.to}}</p>
+        <p>From: {{txResult.from}}</p>
+        <p>Amount: {{txResult.value}}</p>
+        <p>Gas Price: {{txResult.gasPrice}}</p>
+        <p>Gas Limit: {{txResult.gasLimit}}</p>
+        <p>Data: {{txResult.data}}</p>
+        <p>Nonce: {{txResult.nonce}}</p>
+
+    </div>
+    
+  </div>
+  <div class="padding">
+  </div>
+</div>
+  

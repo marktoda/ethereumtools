@@ -8,11 +8,7 @@ const result: ToolDefinition[] = [
 
     {
         name: 'broadcast transaction',
-        category: 'crypto'
-    },
-    {
-        name: 'address generation',
-        category: 'crypto'
+        category: 'rpc'
     },
     {
         name: 'decode transaction',

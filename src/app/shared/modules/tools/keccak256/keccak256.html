@@ -3,13 +3,13 @@
   <div mat-dialog-content class="content">
     <h3 class="header">input</h3>
       <br>
-    <textarea class="hashInput" rows="5" matInput (ngModelChange)="onInputChange($event)" [(ngModel)]="hashInput"></textarea>
+    <textarea class="input" rows="5" matInput (ngModelChange)="onInputChange($event)" [(ngModel)]="hashInput"></textarea>
 
     <br><br><br>
     
     <h3 class="header">result</h3>
       <br>
-    <p>{{hashResult}}</p>
+    <p class="text-single-line-wrap">{{hashResult}}</p>
   </div>
   <div class="padding">
   </div>

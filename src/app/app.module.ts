@@ -15,6 +15,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ItemDialogModule } from "./shared/modules/tools/item-dialog/item.module";
 import { Keccak256Module } from "./shared/modules/tools/keccak256/keccak256.module";
 import { BroadcastTransactionModule } from "./shared/modules/tools/broadcastTransaction/broadcastTransaction.module";
+import { DecodeTransactionDialogModule } from "./shared/modules/tools/decodeTransaction/decodeTransaction.module";
 import { InfuraService } from './services/infura.service';
 
 
@@ -50,6 +51,7 @@ export const createTranslateLoader = (http: HttpClient) => {
         ItemDialogModule,
         Keccak256Module,
         BroadcastTransactionModule,
+        DecodeTransactionDialogModule,
     ],
     declarations: [AppComponent],
     providers: [AuthGuard, InfuraService],

@@ -1,0 +1,46 @@
+.mat-dialog-content {
+    overflow-x: hidden !important;
+}
+
+.dialog {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+}
+
+.text-single-line-wrap {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    width: 100%;
+}
+
+.btn {
+    width: 45%;
+    max-width: 150px;
+    background: #2b3252;
+    border-radius: 50px;
+}
+
+.padding {
+    height: 10%;
+}
+
+.input {
+    width: 100%;
+}
+
+.full-width {
+    width: 100%;
+}

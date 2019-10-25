@@ -5,7 +5,7 @@ import { keccak256 } from 'js-sha3';
 
 @Component({
     selector: 'cart-dialog',
-    styleUrls: ['./keccak256.scss'],
+    styleUrls: ['./keccak256.scss', '../../../util/toolModule.scss'],
     templateUrl: 'keccak256.html',
   })
   export class Keccak256Dialog {
@@ -28,7 +28,7 @@ import { keccak256 } from 'js-sha3';
     }
 
     onInputChange(hashInput) {
-      this.hashResult = keccak256(hashInput);
+      this.hashResult = '0x' + keccak256(hashInput);
       return this.hashResult;
     }
   }

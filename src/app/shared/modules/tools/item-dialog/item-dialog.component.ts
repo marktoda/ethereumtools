@@ -5,7 +5,7 @@ import { ToolDefinition } from '../../../../models/ToolDefinition';
 
 @Component({
     selector: 'cart-dialog',
-    styleUrls: ['./item-dialog.scss'],
+    styleUrls: ['./item-dialog.scss', '../../../util/toolModule.scss'],
     templateUrl: 'item-dialog.html',
   })
   export class ItemDialog {

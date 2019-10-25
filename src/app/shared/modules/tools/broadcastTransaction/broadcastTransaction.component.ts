@@ -7,7 +7,7 @@ import * as _ from 'lodash';
 
 @Component({
     selector: 'cart-dialog',
-    styleUrls: ['./broadcastTransaction.scss'],
+    styleUrls: ['./broadcastTransaction.scss', '../../../util/toolModule.scss'],
     templateUrl: 'broadcastTransaction.html',
   })
   export class BroadcastTransactionDialog {
@@ -21,14 +21,6 @@ import * as _ from 'lodash';
       @Inject(MAT_DIALOG_DATA) public data: any)  {
         this.item = data.item;
       }
-  
-    onNoClick(): void {
-      this.dialogRef.close();
-    }
-
-    addToCart(): void {
-      this.dialogRef.close("add")
-    }
 
     broadcast(): void {
       this.infuraService.broadcastTransaction(this.txInput, "mainnet")

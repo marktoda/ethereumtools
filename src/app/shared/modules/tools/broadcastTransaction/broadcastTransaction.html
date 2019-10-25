@@ -3,7 +3,7 @@
   <div mat-dialog-content class="content">
     <h3 class="header">transaction hex</h3>
       <br>
-    <textarea class="txInput" rows="5" matInput [(ngModel)]="txInput"></textarea>
+    <textarea class="input" rows="5" matInput [(ngModel)]="txInput"></textarea>
       <br>
     <button class="btn" mat-raised-button color="primary" (click)="broadcast()">submit</button>
 
@@ -16,7 +16,7 @@
       <a target="_blank" href="https://etherscan.io/tx/{{txResult}}">{{txResult}}</a>
     </div>
     <div *ngIf="!txResult || !txResult.startsWith('0x')">
-      <p>{{txResult}}</p>
+      <p class="text-single-line-wrap">{{txResult}}</p>
     </div>
     
   </div>

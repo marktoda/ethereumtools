@@ -9,6 +9,7 @@ import { MatSnackBar, MatDialog } from '@angular/material';
 import { Keccak256Dialog } from '../../../shared/modules/tools/keccak256/keccak256.component';
 import { ItemDialog } from '../../../shared/modules/tools/item-dialog/item-dialog.component';
 import { BroadcastTransactionDialog } from '../../../shared/modules/tools/broadcastTransaction/broadcastTransaction.component';
+import { DecodeTransactionDialog } from '../../../shared/modules/tools/decodeTransaction/decodeTransaction.component';
 
 @Component({
     selector: 'tools',
@@ -40,6 +41,8 @@ export class ToolsComponent implements OnInit {
             dialogType = Keccak256Dialog;
         } else if (item.name === "broadcast transaction") {
             dialogType = BroadcastTransactionDialog;
+        } else if (item.name === "decode transaction") {
+            dialogType = DecodeTransactionDialog;
         }
         const dialogRef = this.dialog.open(dialogType, {
             width: '80%',
