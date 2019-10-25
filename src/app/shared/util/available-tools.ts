@@ -13,6 +13,10 @@ const result: ToolDefinition[] = [
     {
         name: 'decode transaction',
         category: 'crypto'
+    },
+    {
+        name: 'verify transaction',
+        category: 'crypto'
     }
 ];
 
