@@ -10,14 +10,14 @@ const result: ToolDefinition[] = [
         name: 'broadcast transaction',
         category: 'crypto'
     },
-    // {
-    //     name: 'address generation',
-    //     category: 'crypto'
-    // },
-    // {
-    //     name: 'decode transaction',
-    //     category: 'crypto'
-    // }
+    {
+        name: 'address generation',
+        category: 'crypto'
+    },
+    {
+        name: 'decode transaction',
+        category: 'crypto'
+    }
 ];
 
 export default result;
