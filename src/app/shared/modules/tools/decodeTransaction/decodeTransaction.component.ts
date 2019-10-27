@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ToolDefinition } from '../../../../models/ToolDefinition';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { InfuraService } from '../../../../services/infura.service';
@@ -41,6 +41,7 @@ interface TxResult {
       let decoded;
       try {
         decoded = new Transaction(this.txInput);
+
         const jsonTx = {
           nonce: EthUtil.bufferToInt(decoded.nonce),
           gasPrice: EthUtil.bufferToInt(decoded.gasPrice),
@@ -48,13 +49,12 @@ interface TxResult {
           value: EthUtil.bufferToInt(decoded.value),
           data: EthUtil.bufferToHex(decoded.data),
           to: EthUtil.bufferToHex(decoded.to),
-          from: EthUtil.bufferToHex(decoded.getSenderAddress()),
-          txid: EthUtil.bufferToHex(decoded.hash()),
+          from: EthUtil.bufferToHex(decoded._from),
+          txid: EthUtil.bufferToHex(EthUtil.rlphash(decoded.raw)),
         };
    
         this.txResult = jsonTx;  
       } catch (e) {
-        console.log(e.message);
         this.txResult = e.message;
         return;
       }

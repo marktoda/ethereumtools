@@ -5,7 +5,8 @@ import {
 import { ToolService } from '../../../services/tool.service';
 import { ToolDefinition } from '../../../models/ToolDefinition';
 import { Observable } from 'rxjs/Observable';
-import { MatSnackBar, MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Keccak256Dialog } from '../../../shared/modules/tools/keccak256/keccak256.component';
 import { ItemDialog } from '../../../shared/modules/tools/item-dialog/item-dialog.component';
 import { BroadcastTransactionDialog } from '../../../shared/modules/tools/broadcastTransaction/broadcastTransaction.component';

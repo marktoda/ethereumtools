@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ToolDefinition } from '../../../../models/ToolDefinition';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { InfuraService } from '../../../../services/infura.service';

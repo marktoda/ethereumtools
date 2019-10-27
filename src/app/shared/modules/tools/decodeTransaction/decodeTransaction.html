@@ -20,7 +20,7 @@
     </div>
 
     <div class="text-single-line-wrap" *ngIf="txResult && txResult.nonce">
-        <a target="_blank" href="https://etherscan.io/tx/{{txResult.txid}}">https://etherscan.io/tx/{{txResult.to}}</a>
+        <a target="_blank" href="https://etherscan.io/tx/{{txResult.txid}}">https://etherscan.io/tx/{{txResult.txid}}</a>
         <p>To: {{txResult.to}}</p>
         <p>From: {{txResult.from}}</p>
         <p>Amount: {{txResult.value}}</p>
