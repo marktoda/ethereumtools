@@ -6,18 +6,19 @@ import { InfuraService } from '../../../../services/infura.service';
 import * as _ from 'lodash';
 import { Transaction } from 'ethereumjs-tx';
 import * as EthUtil from 'ethereumjs-util';
+import * as rlp from 'rlp';
+import { keccak256 } from 'js-sha3';
 
 interface TxResult {
   from: string;
   to: string;
-  value: number;
+  value: string;
   nonce: number;
   gasPrice: number;
   gasLimit: number;
   data: string;
   txid: string;
 }
-
 
 @Component({
     selector: 'cart-dialog',
@@ -46,11 +47,11 @@ interface TxResult {
           nonce: EthUtil.bufferToInt(decoded.nonce),
           gasPrice: EthUtil.bufferToInt(decoded.gasPrice),
           gasLimit: EthUtil.bufferToInt(decoded.gasLimit),
-          value: EthUtil.bufferToInt(decoded.value),
+          value: EthUtil.bufferToHex(decoded.value),
           data: EthUtil.bufferToHex(decoded.data),
           to: EthUtil.bufferToHex(decoded.to),
-          from: EthUtil.bufferToHex(decoded._from),
-          txid: EthUtil.bufferToHex(EthUtil.rlphash(decoded.raw)),
+          from: this.getSenderAddress(decoded),
+          txid: this.getHash(decoded, true),
         };
    
         this.txResult = jsonTx;  
@@ -58,5 +59,39 @@ interface TxResult {
         this.txResult = e.message;
         return;
       }
+    }
+
+    // Basically a reimplementation of Ethereumjs-Tx hash()
+    // using js-sha3 instead of keccak because keccak throws in browser
+    getHash(transaction: Transaction, includeSignature: boolean): string {
+      let items;
+      if (includeSignature) {
+        items = transaction.raw;
+      } else {
+        // TODO: Check for EIP155
+        items = [
+          ...transaction.raw.slice(0, 6),
+          EthUtil.toBuffer(1), // TODO: Handle multiple chain IDs
+          EthUtil.stripZeros(EthUtil.toBuffer(0)),
+          EthUtil.stripZeros(EthUtil.toBuffer(0))
+        ]
+      }
+      return '0x' + keccak256(rlp.encode(items));
+    }
+
+    // Basically a reimplementation of Ethereumjs-Tx getSenderAddress()
+    // using js-sha3 instead of keccak because keccak throws in browser
+    getSenderAddress(transaction: Transaction): string {
+      const { v, r, s } = transaction;
+      
+      const msgHash = this.getHash(transaction, false);
+      const senderPubkey = EthUtil.ecrecover(
+        Buffer.from(msgHash.slice(2), 'hex'),
+        EthUtil.bufferToInt(v),
+        r,
+        s,
+        1 // TODO: Handle multiple chain IDs
+      );
+      return EthUtil.bufferToHex(EthUtil.publicToAddress(senderPubkey));
     }
   }
