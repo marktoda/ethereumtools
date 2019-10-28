@@ -336,7 +336,7 @@ MIT
 
 emitter-component
 
-ethereumjs-common
+ethereum-common
 MIT
 The MIT License (MIT)
 
