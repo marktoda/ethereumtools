@@ -44,3 +44,11 @@
 .full-width {
     width: 100%;
 }
+
+.left-align-innards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+}

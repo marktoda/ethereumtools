@@ -19,15 +19,15 @@
       <p>{{txResult}}</p>
     </div>
 
-    <div class="text-single-line-wrap" *ngIf="txResult && txResult.nonce">
-        <a target="_blank" href="https://etherscan.io/tx/{{txResult.txid}}">https://etherscan.io/tx/{{txResult.txid}}</a>
-        <p>To: {{txResult.to}}</p>
-        <p>From: {{txResult.from}}</p>
-        <p>Amount: {{txResult.value}}</p>
-        <p>Gas Price: {{txResult.gasPrice}}</p>
-        <p>Gas Limit: {{txResult.gasLimit}}</p>
-        <p>Data: {{txResult.data}}</p>
-        <p>Nonce: {{txResult.nonce}}</p>
+    <div class="text-single-line-wrap left-align-innards" *ngIf="txResult && txResult.nonce">
+        <p><b>txid: </b><a target="_blank" href="https://etherscan.io/tx/{{txResult.txid}}">{{txResult.txid}}</a></p>
+        <p><b>to: </b>{{txResult.to}}</p>
+        <p><b>from: </b>{{txResult.from}}</p>
+        <p><b>amount: </b>{{txResult.value}}</p>
+        <p><b>gas price: </b>{{txResult.gasPrice}}</p>
+        <p><b>gas limit: </b>{{txResult.gasLimit}}</p>
+        <p><b>data: </b>{{txResult.data}}</p>
+        <p><b>nonce: </b>{{txResult.nonce}}</p>
 
     </div>
     

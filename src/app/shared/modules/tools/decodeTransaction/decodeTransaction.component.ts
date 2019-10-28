@@ -1,3 +1,5 @@
+const BigNumber = require('bn.js');
+
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ToolDefinition } from '../../../../models/ToolDefinition';
@@ -40,14 +42,14 @@ interface TxResult {
 
     decode(): void {
       let decoded;
-      try {
+      // try {
         decoded = new Transaction(this.txInput);
 
         const jsonTx = {
           nonce: EthUtil.bufferToInt(decoded.nonce),
           gasPrice: EthUtil.bufferToInt(decoded.gasPrice),
           gasLimit: EthUtil.bufferToInt(decoded.gasLimit),
-          value: EthUtil.bufferToHex(decoded.value),
+          value: new BigNumber(EthUtil.bufferToHex(decoded.value).slice(2), 16).toString(10),
           data: EthUtil.bufferToHex(decoded.data),
           to: EthUtil.bufferToHex(decoded.to),
           from: this.getSenderAddress(decoded),
@@ -55,10 +57,10 @@ interface TxResult {
         };
    
         this.txResult = jsonTx;  
-      } catch (e) {
-        this.txResult = e.message;
-        return;
-      }
+      // } catch (e) {
+      //   this.txResult = e.message;
+      //   return;
+      // }
     }
 
     // Basically a reimplementation of Ethereumjs-Tx hash()
@@ -79,7 +81,7 @@ interface TxResult {
       return '0x' + keccak256(rlp.encode(items));
     }
 
-    // Basically a reimplementation of Ethereumjs-Tx getSenderAddress()
+    // Basically a reimplementation of Ethereumjs-Util getSenderAddress()
     // using js-sha3 instead of keccak because keccak throws in browser
     getSenderAddress(transaction: Transaction): string {
       const { v, r, s } = transaction;
@@ -92,6 +94,18 @@ interface TxResult {
         s,
         1 // TODO: Handle multiple chain IDs
       );
-      return EthUtil.bufferToHex(EthUtil.publicToAddress(senderPubkey));
+      return EthUtil.bufferToHex(this.publicToAddress(senderPubkey));
+    }
+
+    // Basically a reimplementation of Ethereumjs-Util publicToAddress()
+    // using js-sha3 instead of keccak because keccak throws in browser
+    publicToAddress(pubKey: Buffer): Buffer {
+      pubKey = EthUtil.toBuffer(pubKey)
+      if (pubKey.length !== 64) {
+        throw new Error(`Invalid pubkey length, expected: 64, got: ${pubKey.length}}`)
+      }
+      // Only take the lower 160bits of the hash
+      return Buffer.from(keccak256(pubKey), 'hex').slice(-20);
+    
     }
   }
