@@ -52,7 +52,7 @@
     "rxjs": "6.5.3",
     "rxjs-compat": "^6.4.0",
     "stream": "0.0.2",
-    "yarn": "^1.13.0",
+    "yarn": "^1.22.0",
     "zone.js": "^0.10.2"
   },
   "devDependencies": {
