@@ -36,7 +36,7 @@
     "angular-cli-ghpages": "^0.6.0",
     "aws-sdk": "^2.404.0",
     "buffer": "^5.4.3",
-    "chart.js": "^2.7.2",
+    "chart.js": "^2.9.4",
     "core-js": "^2.5.7",
     "ethereumjs-tx": "^2.1.1",
     "ethereumjs-util": "^6.1.0",
