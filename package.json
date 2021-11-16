@@ -34,7 +34,7 @@
     "@ngx-translate/http-loader": "^4.0.0",
     "@types/bn.js": "^4.11.5",
     "angular-cli-ghpages": "^0.6.0",
-    "aws-sdk": "^2.404.0",
+    "aws-sdk": "^2.814.0",
     "buffer": "^5.4.3",
     "chart.js": "^2.7.2",
     "core-js": "^2.5.7",
